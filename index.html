@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: lightgray;
+            transition: background-color 0.5s ease; 
+        }
+
+        .container {
+            width: 40%;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            background: linear-gradient(-45deg, #ff416c, #ff4b2b, #ffcc00, #ff0066);
+            background-size: 400% 400%;
+            animation: gradientMove 5s infinite linear;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        input, button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            background-color: antiquewhite;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: red;
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+        span {
+            display: block;
+            margin-top: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white; 
+            padding: 10px 15px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1); 
+            box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.3); 
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Enter task">
+    <button onclick="addTask()">Add Task</button>
+    <button onclick="viewTasks()">View Tasks</button>
+</div>
+ <span>if you dont like background color you can able to chnage it by clicking below changeBackground</span>
+<button onclick="changeBackground()">Change Background</button>
+
+<script>
+    function addTask() {
+        let text = document.getElementById("taskInput").value.trim();
+        if (text === "") return;
+
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        tasks.push(text);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+
+        document.getElementById("taskInput").value = "";
+        alert("Task added!");
+    }
+
+    function viewTasks() {
+        window.location.href = "tasks.html";
+    }
+
+    function changeBackground() {
+        let randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        document.body.style.backgroundColor = randomColor;
+    }
+</script>
+
+</body>
+</html>
