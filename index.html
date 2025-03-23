@@ -19,8 +19,8 @@
         }
 
         .container {
-            width: 90%; /* Adjust width for smaller screens */
-            max-width: 500px; /* Limits width on large screens */
+            width: 90%;
+            max-width: 500px;
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
@@ -31,6 +31,9 @@
             background: linear-gradient(-45deg, #ff416c, #ff4b2b, #ffcc00, #ff0066);
             background-size: 400% 400%;
             animation: gradientMove 5s infinite linear;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         @keyframes gradientMove {
@@ -39,17 +42,25 @@
             100% { background-position: 0% 50%; }
         }
 
-        input, button {
-            margin: 5px;
-            padding: 12px; /* Increased padding for mobile */
+        input {
+            width: 90%;
+            max-width: 350px;
+            padding: 10px;
             font-size: 16px;
             border-radius: 5px;
             border: none;
-            width: 100%; /* Full width input for better UX on mobile */
-            max-width: 400px;
+            margin: 10px 0;
+            text-align: center;
         }
 
         button {
+            width: 90%;
+            max-width: 200px;
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
             background-color: antiquewhite;
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
@@ -73,35 +84,28 @@
             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
         }
 
-        /* RESPONSIVE DESIGN */
+        /* Responsive Design */
         @media (max-width: 768px) { /* Tablets */
             .container {
-                width: 80%;
-                font-size: 16px;
+                width: 95%;
             }
             input, button {
                 font-size: 14px;
-                padding: 10px;
+                padding: 8px;
             }
         }
 
         @media (max-width: 480px) { /* Mobile Phones */
             .container {
-                width: 95%;
-                font-size: 14px;
+                width: 100%;
                 padding: 15px;
             }
             input, button {
-                font-size: 14px;
-                padding: 8px;
                 width: 100%;
-            }
-            span {
                 font-size: 14px;
                 padding: 8px;
             }
         }
-
     </style>
 </head>
 <body>
@@ -113,7 +117,7 @@
     <button onclick="viewTasks()">View Tasks</button>
 </div>
 
-<span>If you don't like the background color, you can change it by clicking below</span>
+<span>If you don’t like the background color, click below to change it.</span>
 <button onclick="changeBackground()">Change Background</button>
 
 <script>
