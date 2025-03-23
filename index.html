@@ -19,7 +19,8 @@
         }
 
         .container {
-            width: 40%;
+            width: 90%; /* Adjust width for smaller screens */
+            max-width: 500px; /* Limits width on large screens */
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
@@ -40,10 +41,12 @@
 
         input, button {
             margin: 5px;
-            padding: 10px;
+            padding: 12px; /* Increased padding for mobile */
             font-size: 16px;
             border-radius: 5px;
             border: none;
+            width: 100%; /* Full width input for better UX on mobile */
+            max-width: 400px;
         }
 
         button {
@@ -56,6 +59,7 @@
             cursor: pointer;
             transform: scale(1.1);
         }
+
         span {
             display: block;
             margin-top: 15px;
@@ -69,6 +73,35 @@
             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
         }
 
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) { /* Tablets */
+            .container {
+                width: 80%;
+                font-size: 16px;
+            }
+            input, button {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) { /* Mobile Phones */
+            .container {
+                width: 95%;
+                font-size: 14px;
+                padding: 15px;
+            }
+            input, button {
+                font-size: 14px;
+                padding: 8px;
+                width: 100%;
+            }
+            span {
+                font-size: 14px;
+                padding: 8px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -79,7 +112,8 @@
     <button onclick="addTask()">Add Task</button>
     <button onclick="viewTasks()">View Tasks</button>
 </div>
- <span>if you dont like background color you can able to chnage it by clicking below changeBackground</span>
+
+<span>If you don't like the background color, you can change it by clicking below</span>
 <button onclick="changeBackground()">Change Background</button>
 
 <script>
